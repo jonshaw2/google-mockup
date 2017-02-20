@@ -33,6 +33,7 @@ pygame.draw.lines(screen, (000,000,000), False, [(background_width/2,0),(backgro
 pygame.draw.lines(screen, (000,000,000), False, [(0,background_height/2),(background_width, background_height/2)],background_line_thickness)
 
 
+
 #initiate end condition
 stop_game = False
 
@@ -40,6 +41,7 @@ stop_game = False
 
 class Square_jump_game(object):
     def __init__(self):
+
         self.dead = False
         self.dead_timer = 0
 
@@ -146,6 +148,7 @@ class Square_jump_game(object):
                 self.dead = True
                 self.dead_timer = time.time()
                 self.ground_limit = 2000
+                game1_lose_sound.play()
                 self.jump()
                 #time.sleep(1)
 
@@ -154,6 +157,7 @@ class Square_jump_game(object):
                 self.dead = True
                 self.dead_timer = time.time()
                 self.ground_limit = 2000
+                game1_lose_sound.play()
                 self.jump()
 
             if self.dead == True and time.time() - self.dead_timer >= 3:
@@ -540,6 +544,13 @@ class Whack_a_mole(object):
 
 def main():
     pygame.init()
+    pygame.mixer.init()
+    global game1_lose_sound
+    #global background_music
+    game1_lose_sound = pygame.mixer.Sound('Mario_Die.wav')
+    pygame.mixer.music.load('Impossible_Quiz.mp3')
+    pygame.mixer.music.play(1)
+
     clock = pygame.time.Clock()
     #initiate the games
     screen_1 = Square_jump_game()
@@ -552,6 +563,7 @@ def main():
         screen_1.jumping()
         screen_1.wall_movement()
         screen_4.spawn_mole()
+
         for event in pygame.event.get():
 
             # Event handling
