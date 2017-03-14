@@ -1,25 +1,6 @@
 $(document).ready(function(){
 
-  $('#deal-button').click(function(){
 
-    // deal();
-    // updateScore();
-
-    $('.hit_button').css('pointer-events', 'auto');
-    $('.hit_button').css('background-color', 'lightblue');
-    $('.stand_button').css('pointer-events', 'auto');
-    $('.stand_button').css('background-color', 'lightblue');
-    $('.deal_button').css('pointer-events', 'none');
-    $('.deal_button').css('background-color', 'black');
-  });
-
-  $('#hit-button').click(function(){
-
-    dealCard();
-    updateScore();
-    bust();
-
-  });
 
   function Card(points, suits){
     this.point = points;
@@ -62,10 +43,17 @@ $(document).ready(function(){
     return sumPoints;
   };
 
+  function DealCard(hand, field_class){
+    var card_to_add = current_deck.draw();
+    hand.addCard(card_to_add);
+
+    var cardToDisplay = card_to_add.getImageUrl();
+    $(field_class).append('<img class="first_card" src='+cardToDisplay+'>');
+  }
 
   function Deck(){
     this.currentDeck = [];
-    var suits = ['club','diamond','heart','spade'];
+    var suits = ['clubs','diamonds','hearts','spades'];
     var points = [1,2,3,4,5,6,7,8,9,10,11,12,13];
     for (i=0; i<points.length;i++){
       for (j=0; j<suits.length;j++){
@@ -82,7 +70,7 @@ $(document).ready(function(){
   Deck.prototype.shuffle = function() {
     var tempDeck = [];
     while (this.currentDeck.length > 0){
-      randomCard = Math.floor(Math.random()*(this.currentDeck.length-1));
+      randomCard = Math.floor(Math.random()*(this.currentDeck.length));
       splice = this.currentDeck.splice(randomCard,1);
       tempDeck.push(splice[0]);
     }
@@ -98,6 +86,37 @@ $(document).ready(function(){
   current_deck.shuffle();
   var dealer_hand = new Hand();
   var player_hand = new Hand();
+  dealer_hand.card_class = '.dealer_card_field';
+  dealer_hand.text_class = 'test';
+  player_hand.card_class = '.player_card_field';
+  player_hand.text_class = 'test';
 
+  $('#deal-button').click(function(){
+
+    // deal();
+    // updateScore();
+
+    console.log(dealer_hand);
+    DealCard(dealer_hand, dealer_hand.card_class);
+    DealCard(dealer_hand, dealer_hand.card_class);
+
+    DealCard(player_hand, player_hand.card_class);
+    DealCard(player_hand, player_hand.card_class);
+
+    $('.hit_button').css('pointer-events', 'auto');
+    $('.hit_button').css('background-color', 'lightblue');
+    $('.stand_button').css('pointer-events', 'auto');
+    $('.stand_button').css('background-color', 'lightblue');
+    $('.deal_button').css('pointer-events', 'none');
+    $('.deal_button').css('background-color', 'black');
+  });
+
+  $('#hit-button').click(function(){
+    DealCard(player_hand, player_hand.card_class);
+    // dealCard();
+    // updateScore();
+    // bust();
+
+  });
 
 });
