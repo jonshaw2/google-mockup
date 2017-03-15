@@ -48,7 +48,16 @@ $(document).ready(function(){
     hand.addCard(card_to_add);
 
     var cardToDisplay = card_to_add.getImageUrl();
+    $(field_class).append('<img class="playing_card" src='+cardToDisplay+'>');
+  }
+
+  function DealBlankCard(hand, field_class){
+    var card_to_add = current_deck.draw();
+    hand.addCard(card_to_add);
+
+    var cardToDisplay = card_to_add.getImageUrl();
     $(field_class).append('<img class="first_card" src='+cardToDisplay+'>');
+    $(field_class).append('<img class="playing_card" src="images/card_back.jpg">');
   }
 
   function Deck(){
@@ -97,7 +106,7 @@ $(document).ready(function(){
     // updateScore();
 
     console.log(dealer_hand);
-    DealCard(dealer_hand, dealer_hand.card_class);
+    DealBlankCard(dealer_hand, dealer_hand.card_class);
     DealCard(dealer_hand, dealer_hand.card_class);
 
     DealCard(player_hand, player_hand.card_class);
