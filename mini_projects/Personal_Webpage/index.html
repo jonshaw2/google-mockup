@@ -3,12 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title>Jonathan Shaw</title>
+    <script src="jquery-3.1.1.js"></script>
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
     crossorigin="anonymous">
+    <script src="main.js"></script>
+
+
     <style>
     .top{
+      position: absolute;
+      margin: 0 0 0 0;
       height: 34vh;
 
     }
@@ -30,41 +36,142 @@
     }
 
     .middle{
+      position: absolute;
+      margin: 34vh 0 0 0;
       height: 33vh;
+      width: 100%;
 
 
     }
     .mid_content{
+      position: absolute;
       height: 33vh;
       border-top: 3px solid white;
       border-bottom: 3px solid white;
+      margin: 0 15% 0 15%;
 
-
-      width: 100%;
+      width: 70%;
       font-size: 30px;
       color: white;
       text-align: center;
+      opacity: 1;
 
 
+
+
+
+    }
+
+    .about{
+      position: absolute;
+      height: 50vh;
+      border-top: 3px solid white;
+      border-bottom: 3px solid white;
+      margin: 0 15% 0 15%;
+
+      width: 70%;
+      font-size: 30px;
+      color: white;
+      text-align: left;
+      opacity: 0;
+      background: rgba(0, 0 , 0, .5);
+
+    }
+
+    .portfolio{
+      position: absolute;
+      height: 50vh;
+      border-top: 3px solid white;
+      border-bottom: 3px solid white;
+      margin: 0 15% 0 15%;
+
+      width: 70%;
+      font-size: 30px;
+      color: white;
+      text-align: left;
+      opacity: 0;
+      background: rgba(0, 0 , 0, .5);
+
+    }
+
+    .portfolio img{
+      position: relative;
+      display: block;
+      float: left;
+      margin: 10% 5% 1% 5%;
+      height: 100%;
+      width: 90%;
+
+    }
+    .item1{
+      position: absolute;
+      height: 35vh;
+      width: 33%;
+    }
+
+    .item2{
+      position: absolute;
+      height: 35vh;
+      width: 33%;
+      margin: 0 0 0 33%;
+    }
+
+    .item3{
+      position: absolute;
+      height: 35vh;
+      width: 33%;
+      margin: 0 0 0 66%;
+    }
+    .portfolio .portfolio_text{
+      position: relative;
+      height: 33vh;
+      margin: 1% 1% 1% 1%;
+      font-size: 2vw;
+
+      text-align: center;
 
     }
     .bottom{
+      position: absolute;
       height: 33vh;
-      width: 100%;
+      width: 60%;
+      margin: 67vh 20% 0 20%;
+
 
     }
     .background{
+      display: block;
+      position: absolute;
       background-image: url("image/background.jpg");
-
+      float: left;
       background-size: cover;
       background-repeat: no-repeat;
+      width: 100%;
+      height: 100vh;
     }
+
+
 
     .body{
       margin: 0;
       text-align: center;
       background-color: red;
     }
+
+    .webpage_links{
+      display: inline-block;
+      text-align: center;
+      width: 80%;
+      margin: 0 10% 0 10%;
+
+    }
+    .webpage_links a{
+      border: 1px solid red;
+      font-size: 2vw;
+    }
+
+
+
     </style>
   </head>
   <body>
@@ -75,46 +182,40 @@
         </div>
       </div>
       <div class="middle">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="row" style="width: 70%; margin: auto;">
-                <div class="mid_content">
-                    Jonathan Shaw
-                </div>
-              </div>
-            </div>
+          <div class="mid_content">
+            Jonathan Shaw
           </div>
 
+          <div class="about">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
 
-        </div>
+          <div class="portfolio">
+            <div class="item1">
+              <img src="image/mini_games.jpg" alt="">
+              <div class="portfolio_text">some text</div>
+            </div>
+            <div class="item2">
+              <img src="image/blackjack.jpg" alt="">
+              <div class="portfolio_text">some text</div>
+            </div>
+            <div class="item3">
+              <img src="image/tic_tac_toe.jpg" alt="">
+              <div class="portfolio_text">some text</div>
+            </div>
+          </div>
       </div>
 
       <div class="bottom">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="row" style="width: 70%; margin: auto; padding: 20px 0 20px 0">
-                <ul>
-                  <div class="col-xs-3">
-                    <div class="top_li"><a href="#something">ABOUT</a></div>
-                  </div>
 
-                  <div class="col-xs-3">
-                    <div class="top_li"><a href="portfolio.asp">PORTFOLIO</a></div>
-                  </div>
-
-                  <div class="col-xs-3">
-                    <div class="top_li"><a href="contact.asp">CONTACT</a></div>
-                  </div>
-
-                  <div class="col-xs-3">
-                    <div class="top_li"><a href="resume.asp">RÉSUMÉ</a></div>
-                  </div>
-                </ul>
-              </div>
-            </div>
-          </div>
+        <div class="webpage_links">
+          <ul>
+              <a id="home" href="#home">HOME</a>
+              <a id="about" href="#something">ABOUT</a>
+              <a id="portfolio" href="#portfolio">PORTFOLIO</a>
+              <a id="contact" href="#contact">CONTACT</a>
+              <a id="resume" href="#resume">RÉSUMÉ</a>
+          </ul>
         </div>
       </div>
     </div>
