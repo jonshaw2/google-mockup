@@ -6,14 +6,14 @@ $(document).ready(function(){
 
 
   $("#home").click(function(){
-
+    $('.title').text("Jonathan Shaw");
     remove_animation();
     run_animation('.mid_content');
 
   });
 
   $("#portfolio").click(function(){
-
+    $('.title').text("Portfolio");
     remove_animation();
     run_animation('.portfolio');
 
@@ -22,14 +22,14 @@ $(document).ready(function(){
 
 
   $("#about").click(function() {
-
+    $('.title').text("Jonathan Shaw");
     remove_animation();
     run_animation('.about');
 
   });
 
   $("#contact").click(function() {
-
+    $('.title').text("Contact");
     remove_animation();
     run_animation('.contact');
 
